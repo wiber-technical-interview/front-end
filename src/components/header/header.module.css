@@ -1,0 +1,98 @@
+
+.container img {
+    width: 120px;
+    height: 120px;
+    margin-right: 40px;
+
+}
+
+.container {
+    padding: 10px;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+    background: linear-gradient(to bottom, #e45765, #c94553);
+    height: 70px;
+    width: 100vw;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    position: fixed;
+}
+
+
+.title {
+    color: white;
+    margin-bottom: -10px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.containerTitle {
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: start;
+    font-size: 1.2vw;
+
+}
+
+.containerTitle p {
+    color: #111666;
+    font-weight: 700;
+    font-size: 1.3vw;
+}
+
+.scriptDetails {
+    width: 90%;
+    height: 80vh;
+    background-color: white;
+    border-radius: 20px;
+    margin: 20px;
+}
+
+.titleDetails {
+    width: 100%;
+    background-color: #111666;
+    height: 70px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+
+}
+
+.searchScript {
+    width: 60%;
+    height: 40px;
+    border: none;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    padding-left: 10px;
+}
+
+.searchContainer {
+    width: 600px;
+}
+
+.searchContainer button {
+    border: none;
+    width: 70px;
+    height: 30px;
+    border-radius: 30px;
+    margin: 10px;
+}
+
+.buttonCreate{
+    border-radius: 20px;
+    border: none;
+    width: 140px;
+    height: 50px;
+    margin-right: 40px;
+    background-color: #111666;
+    color: antiquewhite;
+    font-size: 18px;
+    font-weight: 700;
+    box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.9);
+
+}
+.buttonCreate:hover{
+scale: 1.05;
+transition: 0.2s;
+}

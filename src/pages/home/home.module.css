@@ -1,0 +1,42 @@
+.container {
+    background-color: #CFD2D5;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    scroll-behavior: smooth;
+    padding-bottom: 20px;
+}
+
+.scriptDetails {
+    width: 95%;
+    height: 80vh;
+    background-color: white;
+    border-radius: 20px;
+    margin: 20px;
+    box-shadow: 0px 4px 13px rgba(0, 0, 0, 0.5);
+    margin-top: 110px;
+
+
+}
+
+.titleDetails {
+    width: 100%;
+    max-width: 100%;
+    background-color: #111666;
+    height: 70px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    color: #CFD2D5;
+    text-align: center;
+    justify-content:space-around;
+    display: flex;
+
+}
+
+.titleDetails h2{
+  width: 20%;  
+  text-align: center;
+}

@@ -1,0 +1,54 @@
+.container{
+    width: 100%;
+    display: flex;
+    height: 40px;
+    background-color: rgb(215, 219, 219);
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+    border-bottom: 1px solid rgb(147, 144, 144);
+    transition: background-color 0.3s
+}
+
+.container h4{
+    width: 20%;
+    text-align: center;
+}
+
+.container button{
+    border: none;
+    width: 100px;
+    height: 10vh;
+    border-right: 1px solid black;
+}
+.container button:hover{
+    background-color: #c94553;
+}
+.container:hover{
+    background-color: #5c181f;
+    cursor: pointer;
+}
+
+.column{
+    width: 20%;
+    border-right: 1px solid rgb(198, 190, 190);
+    background-color: rgb(219, 221, 221);
+    height: 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+.column h6 {
+    font-size: 15px;
+}
+
+.column button{
+    height: 70%;
+    border: none;
+    border-radius: 20px;
+    width: 30%;
+    background-color:#0c1044;
+    color: aliceblue;
+    margin: 10px;
+}
