@@ -13,11 +13,13 @@
 
 .containerForm {
     margin-top: 100px;
-    background: linear-gradient(to bottom, #ede8e9, #d8c4c4);
-    width: 95%;
+    background: linear-gradient(to bottom, #e0e0e3);
+    width: 97%;
     height: 80%;
     border-radius: 10px;
-    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.6);
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
 
 }
 
@@ -33,6 +35,7 @@
     font-size: 18px;
     font-family: Helvetica;
     font-weight: 800;
+    color: rgb(36, 35, 35);
 }
 
 .input {
@@ -44,6 +47,7 @@
     margin: 5px;
     padding-left: 10px;
     font-family: Helvetica;
+    background: linear-gradient(to bottom, #ede8e9, #efe5e5);
 
 
 }
@@ -53,21 +57,23 @@
     border: .3px solid #c94553;
     box-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
     width: 95%;
-    height: 340px;
-    margin: 5px;
+    height: 290px;
+    margin-top: 10px;
     padding-left: 10px;
     padding: 10px;
     font-family: Helvetica;
+    background: linear-gradient(to bottom, #ede8e9, #efe5e5);
 }
 
 .container button {
-    height: 7%;
+    height: 40px;
     border: none;
-    border-radius: 20px;
-    width: 11%;
-    background-color: #0c1044;
-    color: aliceblue;
+    border-radius: 10px;
+    width: 140px;
+    background-color:#111666;
+    color:white;
     margin: 10px;
+    margin-left: 40px;
 }
 
 .container button:hover {

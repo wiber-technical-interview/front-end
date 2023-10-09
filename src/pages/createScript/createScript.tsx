@@ -28,6 +28,7 @@ function CreateScript() {
             placeholder="Ingrese nombre del Script..."
           />
         </div>
+        <button>Cargar Script</button>
       </div>
     </div>
   )
