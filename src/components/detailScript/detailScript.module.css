@@ -1,0 +1,180 @@
+.container {
+    background-color: rgb(255, 255, 255);
+    width: 80vw;
+    height: 500px;
+    position: fixed;
+    margin-top: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.containerItem {
+    flex-direction: row;
+    display: flex;
+    width: auto;
+    height: 40%;
+    background-color: rgb(206, 208, 208);
+    justify-content: flex-start;
+    padding: 7px;
+    align-items: center;
+    border-radius: 10px;
+    margin: 5px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.containerScript {
+    flex-direction: row;
+    display: flex;
+    width: 95%;
+    height: 100%;
+    background-color: rgb(34, 34, 34);
+    justify-content: flex-start;
+    padding: 15px;
+    align-items: flex-start;
+    border-radius: 15px;
+    margin: 10px;
+    overflow: auto;
+    text-align: left;
+    font-weight: 600;
+    font-family: Helvetica;
+    color: aliceblue;
+
+}
+
+.containerItem h2 {
+    margin: 10px;
+    font-size: 17px;
+    font-family: Helvetica;
+    color: rgb(90, 90, 90);
+}
+
+.containerItem h3 {
+    font-size: 17px;
+    font-family: Helvetica;
+    font-weight: 900;
+}
+
+.containerTitles {
+    display: flex;
+    flex-direction: row;
+    height: 70px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.buttonClose {
+    width: 90px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    background-color: #111666;
+    color: antiquewhite;
+    font-size: 12px;
+    font-weight: 700;
+    box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.9);
+    margin: 10px;
+}
+
+.buttonClose:hover {
+    scale: 1.05;
+    transition: 0.2s;
+    background-color: #121430;
+
+}
+
+.buttonDelete {
+    display: flex;
+    width: 50px;
+    height: 50px;
+    border-radius: 300px;
+    background-color: #c93c4a;
+    margin-left: 30px;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+
+}
+
+.buttonDelete:disabled{
+    opacity: 0.3;
+}
+.buttonDelete:disabled:hover{
+    scale: 1;
+    background-color: #c93c4a;
+}
+
+.buttonDelete:hover {
+    scale: 1.1;
+    transition: 0.3s;
+    background-color: #970a18;
+
+}
+
+.buttonEdit {
+    width: 70px;
+    height: 40px;
+    border-radius: 300px;
+    background-color: #c93c4a;
+    margin-left: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.3);
+
+}
+
+.buttonEdit:disabled {
+   opacity: 0.3;
+}
+.buttonEdit:disabled:hover {
+    scale: 1;
+    background-color: #c93c4a;
+
+}
+
+.buttonEdit:hover {
+    scale: 1.1;
+    background-color: #59272c;
+    transition: 0.3s;
+}
+
+.containerTextarea {
+    width: 100%;
+    border: none;
+    height: 100%;
+    background-color: rgb(34, 34, 34);
+    color: rgb(237, 202, 23)
+}
+
+.buttonSave {
+    width: 90px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    background-color: #c93c4a;
+    color: antiquewhite;
+    font-size: 12px;
+    font-weight: 700;
+    box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.9);
+    margin: 10px;
+}
+
+.buttonSave:hover {
+    scale: 1.1;
+    transition: 0.3s;
+    background-color: #672027;
+
+}

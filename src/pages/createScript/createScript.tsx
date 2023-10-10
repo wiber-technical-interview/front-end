@@ -25,10 +25,10 @@ function CreateScript() {
            /*  value={""} */
             onChange={() => { }}
             className={style.textTarea}
-            placeholder="Ingrese nombre del Script..."
+            placeholder="Ingrese cuerpo del Script..."
           />
         </div>
-        <button>Cargar Script</button>
+        <button className={style.buttonAddScript}>Cargar Script</button>
       </div>
     </div>
   )

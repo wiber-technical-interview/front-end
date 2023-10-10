@@ -65,7 +65,7 @@
     background: linear-gradient(to bottom, #ede8e9, #efe5e5);
 }
 
-.container button {
+.buttonAddScript{
     height: 40px;
     border: none;
     border-radius: 10px;
@@ -76,7 +76,7 @@
     margin-left: 40px;
 }
 
-.container button:hover {
+.buttonAddScript:hover {
     background-color: #c94553;
     scale: 1.1;
     transition: .3s;

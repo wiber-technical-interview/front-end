@@ -1,8 +1,9 @@
 .container {
-    background-color: #CFD2D5;
+    background-color: #ffffff;
     justify-content: center;
     display: flex;
     align-items: center;
+    max-width:100%;
     width: 100%;
     height: auto;
     flex-direction: column;
@@ -12,7 +13,7 @@
 
 .scriptDetails {
     width: 95%;
-    height: 80vh;
+    height: auto;
     background-color: white;
     border-radius: 20px;
     margin: 20px;
@@ -21,11 +22,22 @@
 
 
 }
-
+.containerModal{
+    background-color: rgb(25, 25, 25);
+    width: 100vw;
+    opacity: 0.9;
+    height: 100vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9); 
+}
 .titleDetails {
     width: 100%;
     max-width: 100%;
     background-color: #111666;
+    background: linear-gradient(to bottom, #111666, #080b3d);
     height: 70px;
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
