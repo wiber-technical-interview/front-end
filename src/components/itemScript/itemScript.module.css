@@ -27,7 +27,17 @@
 }
 .container:hover{
     background-color: #5c181f;
-    cursor: pointer;
+}
+.containerModal{
+    background-color: rgb(25, 25, 25);
+    width: 100vw;
+    opacity: 0.9;
+    height: 100vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.9); 
 }
 
 .column{
