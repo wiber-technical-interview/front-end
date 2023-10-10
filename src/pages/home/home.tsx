@@ -15,17 +15,20 @@ const Home = () => {
                         <h2>Acciones</h2>
                     </div>
                     {data.map((item) => (
-                        <ItemScript
-                            id={item.id}
-                            name={item.name}
-                            creationDate={item.creationDate}
-                            updateDate={item.creationDate}
-                            script={item.script}
-                        />
+                        <div key={item.id}>
+                            <ItemScript
+                                id={item.id}
+                                name={item.name}
+                                creationDate={item.creationDate}
+                                updateDate={item.creationDate}
+                                script={item.script}
+                            />
+                        </div>
+
                     ))}
                 </div>
             </div>
-        
+
         </>
 
     )

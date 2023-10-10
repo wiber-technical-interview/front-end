@@ -34,6 +34,7 @@ const ItemScript = (props: DataScript) => {
             </div>
             <div className={style.column}>
                 <button
+                className={style.buttonView}
                     onClick={handleModal}>Ver / Editar
                 </button>
 

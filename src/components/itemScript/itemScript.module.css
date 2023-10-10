@@ -16,13 +16,13 @@
     text-align: center;
 }
 
-.container button{
+.buttonView{
     border: none;
     width: 100px;
     height: 10vh;
     border-right: 1px solid black;
 }
-.container button:hover{
+.buttonView:hover{
     background-color: #c94553;
 }
 .container:hover{

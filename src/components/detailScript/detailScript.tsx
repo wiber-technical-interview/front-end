@@ -1,8 +1,24 @@
-import React from 'react'
+import React, { useState } from 'react'
 import style from "./detailScript.module.css"
 import { DataScript } from '../../components/itemScript/itemScript'
+import { MdDeleteForever } from 'react-icons/md';
+import { AiFillEdit } from 'react-icons/ai';
+
 
 const DetailScript = (props: DataScript) => {
+
+    const handlerDelete = () => {
+        window.confirm("¿Está seguro de que desea borrar este script?");
+    }
+
+    const [isEditing, setisEditing] = useState(false)
+    const handlerEdit = () => {
+        setisEditing(!isEditing)
+        isEditing && alert("guardado con exito")
+    }
+
+
+
 
     return (
         <div className={style.container}>
@@ -23,13 +39,45 @@ const DetailScript = (props: DataScript) => {
                     <h2>Ultima Actualización:</h2>
                     <h3>{props.updateDate}</h3>
                 </div>
-                <button>clerar</button>
+                <button className={style.buttonDelete}
+                    onClick={handlerDelete}
+                    disabled={isEditing}>
+                    <MdDeleteForever size={35} color='white' />
+                </button>
             </div>
             <div className={style.containerScript}>
-            <pre dangerouslySetInnerHTML={{ __html: props.script }} />
+                {isEditing ? (
+                    <textarea
+                        value={props.script}
+                        className={style.containerTextarea}
+                        onChange={(e) => {
+                        }}
+                    />
+                ) : (
+                    <pre dangerouslySetInnerHTML={{ __html: props.script }} />
+                )}
             </div>
-            <button onClick={props.closeModal}
-                className={style.buttonCreate}>Cerrrar Script</button>
+            <div style={{ flexDirection: "row", justifyContent: "center", alignItems: "center", display: "flex" }}>
+                {isEditing ? (
+                    <>
+                        <button onClick={handlerEdit}
+                            className={style.buttonSave}>Guardar
+                        </button>
+                    </>
+                ) : (
+                    <>
+                        <button onClick={props.closeModal}
+                            className={style.buttonClose}>Cerrrar
+                        </button>
+                    </>
+                )}
+
+                <button onClick={handlerEdit}
+                    className={style.buttonEdit}
+                    disabled={isEditing}>
+                    <AiFillEdit size={23} color='white' />
+                </button>
+            </div>
         </div>
     )
 }
