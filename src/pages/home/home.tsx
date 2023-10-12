@@ -43,18 +43,18 @@ const Home = () => {
                         <h2>Identificador</h2>
                         <h2>Nombre </h2>
                         <h2>Fecha creación</h2>
-                        <h2>Fecha actualización</h2>
+                        <h2>Actualización</h2>
+                        <h2>Nº Versiones</h2>
                         <h2>Acciones</h2>
                     </div>
                     {dataScripts !== undefined && dataScripts.map((item) => (
                         <div key={item._id}>
                             <ItemScript
-                                _id={item._id}
+                                id={item._id}
                                 identifier={item.identifier}
                                 name={item.name}
                                 creationDate={item.creationDate}
-                                updateDate={item.script[0].updateDate}
-                                script={item.script[0].description}
+                                script={item.script}
                             />
                         </div>
 

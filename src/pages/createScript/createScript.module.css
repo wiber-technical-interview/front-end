@@ -80,7 +80,13 @@
 }
 
 .buttonAddScript:hover {
-    background-color: #c94553;
     scale: 1.1;
     transition: .3s;
+}
+
+.buttonAddScript:disabled{
+    opacity: 0.3;
+}
+.buttonAddScript:disabled:hover{
+    scale: 1;
 }

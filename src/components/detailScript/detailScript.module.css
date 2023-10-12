@@ -116,7 +116,17 @@
     background-color: #c93c4a;
 
 }
+.select{
+    border: none;
+    height: 5vh;
+    width: 200px;
+    padding: 7px;
+    border-radius: 8px;
+    background-color: #111666;
+    color: aliceblue;
+    font-family: Helvetica;
 
+}
 .buttonEdit:hover {
     scale: 1.1;
     background-color: #59272c;

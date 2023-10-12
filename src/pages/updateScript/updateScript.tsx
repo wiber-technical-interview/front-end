@@ -5,18 +5,21 @@ import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
 export interface UpdateScript {
-    id?: string,
     name: string,
     description: string
 }
 
 const UpdateScript = () => {
     const navigate = useNavigate();
-    const [isEditing, setisEditing] = useState(false)
 
     let { id } = useParams();
+
+    //estado script previo original 
+    const [descriptioScript, setdescriptioScript] = useState({
+        description: ""
+    })
     //estado para gestionar los input
-    const [inputDataScript, setInputDataScript] = useState<UpdateScript>({
+    const [inputUpdateScript, setIinputUpdateScript] = useState<UpdateScript>({
         name: "",
         description: ""
     })
@@ -26,30 +29,39 @@ const UpdateScript = () => {
             let URL = `http://127.0.0.1:8000/updateScript/${id}`
             try {
                 const response = await axios.get(URL)
-                setInputDataScript({
-                    name: response.data.name,
-                    description: response.data.script[0].description
+                let lastUpdateScript = response.data.script.length - 1
+                setdescriptioScript({
+                    description: response.data.script[lastUpdateScript].description
                 })
+                setIinputUpdateScript({
+                    name: response.data.name,
+                    description: response.data.script[lastUpdateScript].description
+                })
+                return response.data
             } catch (error) {
                 console.log(error);
             }
         }
         getScriptById()
-    }, [id])
+    }, [])
 
-    //actualizar inputs para enviar cambios 
+
+
+    //Actualizar inputs para enviar cambios 
     const handlerChangeInput = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        setInputDataScript({
-            ...inputDataScript,
+        setIinputUpdateScript({
+            ...inputUpdateScript,
             [event.target.name]: event.target.value
         })
     }
 
     // Update Script
+    const [isEditing, setisEditing] = useState(false)
+
     const handlerUpdate = async () => {
         try {
-            const response = await axios.put(`http://127.0.0.1:8000/updateScript`,inputDataScript);
-            setisEditing(!isEditing)
+            const response = await axios.put(`http://127.0.0.1:8000/updateScript/${id}`, inputUpdateScript);
+            response && setisEditing(!isEditing)
             isEditing && alert("guardado con exito")
             navigate("/")
         } catch (error) {
@@ -57,6 +69,13 @@ const UpdateScript = () => {
         }
     }
 
+
+    //manejar el disabled de guardar Script
+    const [disabledButtonEdit, setDisabledButtonEdit] = useState(true)
+    useEffect(() => {
+        const isDescriptionChanged = descriptioScript.description.trim() !== inputUpdateScript.description.trim();
+        setDisabledButtonEdit(!isDescriptionChanged);
+    }, [inputUpdateScript]);
 
 
 
@@ -67,6 +86,8 @@ const UpdateScript = () => {
             try {
                 const response = await axios.delete(`http://127.0.0.1:8000/updateScript/${id}`);
                 navigate("/")
+                console.log(response);
+                
             } catch (error) {
                 console.log(error);
             }
@@ -76,16 +97,15 @@ const UpdateScript = () => {
         <div className={style.container}>
             <div className={style.containerForm}>
                 <div className={style.containerinput}>
-                    <label htmlFor="nombre">INGRESE NOMBRE:</label>
-                    <input
-                        type="text"
-                        id="name"
-                        name="name"
-                        value={inputDataScript ? inputDataScript.name : ""}
-                        onChange={handlerChangeInput}
-                        className={style.input}
-                        placeholder="Ingrese nombre del Script..."
-                    />
+                    <label htmlFor="nombre"> NOMBRE SCRIPT:</label>
+                    <div className={style.input}>
+                        <h4>
+                            {inputUpdateScript ? inputUpdateScript.name : ""}
+                        </h4>
+                    </div>
+                    <select>
+                        <option>{descriptioScript.description}</option>
+                    </select>
                 </div>
 
                 <div className={style.containerinput}>
@@ -93,15 +113,18 @@ const UpdateScript = () => {
                     <textarea
                         id="description"
                         name="description"
-                        value={inputDataScript ? inputDataScript.description : ""}
+                        value={inputUpdateScript ? inputUpdateScript.description : ""}
                         onChange={handlerChangeInput}
                         className={style.textTarea}
                         placeholder="Ingrese cuerpo del Script..."
                     />
                 </div>
                 <div style={{ flexDirection: "row", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <button className={style.buttonAddScript}
-                        onClick={handlerUpdate}>Guardar Script
+                    <button
+                        className={style.buttonAddScript}
+                        onClick={handlerUpdate}
+                        disabled={disabledButtonEdit}>
+                        Guardar Script
                     </button>
                     <button className={style.buttonDelete}
                         onClick={handlerDelete}

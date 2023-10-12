@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import style from "./createScript.module.css"
 import axios from "axios"
 
@@ -15,8 +15,15 @@ const CreateScript = () => {
     name: "",
     script: ""
   })
+  //control de disabled del button 
+  const [disabledButtonCreate, setDisabledButtonCreate] = useState(true)
+  useEffect(() => {
+    const isInputChanged = inputValue.name === "" || inputValue.script === ""
+    setDisabledButtonCreate(isInputChanged)
+  }, [inputValue])
 
 
+  //cargar valores al estado 
   const handlerInputValue = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setInputValue({
       ...inputValue,
@@ -69,8 +76,11 @@ const CreateScript = () => {
             placeholder="Ingrese cuerpo del Script..."
           />
         </div>
-        <button className={style.buttonAddScript}
-          onClick={postScriptOnClick}>Cargar Script</button>
+        <button
+          className={style.buttonAddScript}
+          onClick={postScriptOnClick}
+          disabled={disabledButtonCreate}>Cargar Script
+        </button>
       </div>
     </div>
   )

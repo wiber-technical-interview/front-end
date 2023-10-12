@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import style from "./detailScript.module.css"
 import { DataScript } from '../../components/itemScript/itemScript'
 
@@ -6,15 +6,19 @@ import { DataScript } from '../../components/itemScript/itemScript'
 const DetailScript = (props: DataScript) => {
 
 
-
-    const [isEditing, setisEditing] = useState(false)
+    // estado para controlar la renderizacion de las versiones de script
+    const [selectedOptionIndex, setSelectedOptionIndex] = useState(props.script.length - 1);
+    const handleSelectChange = (event: any) => {
+        const selectedIndex = event.target.value;
+        setSelectedOptionIndex(selectedIndex);
+    };
 
     return (
         <div className={style.container}>
             <div className={style.containerTitles}>
                 <div className={style.containerItem}>
                     <h2>Identificador:</h2>
-                    <h3>{props._id}</h3>
+                    <h3>{props.identifier}</h3>
                 </div>
                 <div className={style.containerItem}>
                     <h2>Nombre:</h2>
@@ -25,29 +29,30 @@ const DetailScript = (props: DataScript) => {
                     <h3>{props.creationDate.substring(0, 10)}</h3>
                 </div>
                 <div className={style.containerItem}>
-                    <h2>Ultima Actualización:</h2>
-                    <h3>{props.updateDate.substring(0, 10)}</h3>
+                    <h2>Actualización:</h2>
+                    {/* cargar versiones del Script */}
+                    <select
+                        onChange={handleSelectChange}
+                        className={style.select}
+                        value={selectedOptionIndex}>
+                        {props.script.map((item, index) =>
+                            <option key={index} value={index}>
+                                {item.updateDate.substring(0, 10)} a {item.updateDate.substring(11, 16)}hs
+                            </option>
+                        )}
+                    </select>
                 </div>
 
             </div>
             <div className={style.containerScript}>
-                {isEditing ? (
-                    <textarea
-                        value={props.script}
-                        className={style.containerTextarea}
-                        onChange={(e) => {
-                        }}
-                    />
-                ) : (
-                    <pre dangerouslySetInnerHTML={{ __html: props.script }} />
-                )}
+                <pre dangerouslySetInnerHTML={{ __html: props.script[selectedOptionIndex].description }} />
             </div>
             <div style={{ flexDirection: "row", justifyContent: "center", alignItems: "center", display: "flex" }}>
-             
-                        <button onClick={props.closeModal}
-                            className={style.buttonClose}>Cerrrar
-                        </button>
-             
+
+                <button onClick={props.closeModal}
+                    className={style.buttonClose}>Cerrrar
+                </button>
+
             </div>
         </div>
     )
