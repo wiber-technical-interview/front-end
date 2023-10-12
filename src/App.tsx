@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/createScript" element={<CreateScript />} />
-        <Route path="/updateScript" element={<UpdateScript />} />
+        <Route path="/updateScript/:id" element={<UpdateScript />} />
       </Routes>
     </BrowserRouter>
   );

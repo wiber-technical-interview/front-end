@@ -34,7 +34,6 @@ const Home = () => {
         getAllScrips()
     }, [])
 
-    console.log(dataScripts);
 
     return (
         <>

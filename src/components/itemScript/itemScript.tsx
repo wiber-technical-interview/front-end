@@ -23,17 +23,7 @@ const ItemScript = (props: DataScript) => {
     }
 
     const handlerEditClick = () => {
-        //pasar las props por query 
-        const dataToPass = {
-            _id: props._id,
-            identifier: props.identifier,
-            name: props.name,
-            creationDate: props.creationDate,
-            updateDate: props.updateDate,
-            script: props.script,
-        };
-        const queryParams = new URLSearchParams(dataToPass).toString();
-        navigate(`/updateScript?${queryParams}`);
+        navigate(`/updateScript/${props._id}`);
     };
 
 
