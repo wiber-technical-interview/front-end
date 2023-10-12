@@ -1,8 +1,41 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import style from "./home.module.css"
 import ItemScript from '../../components/itemScript/itemScript'
-import data from "../../data.json"
+import axios from 'axios'
+
+export interface DescriptionScript{
+    updateDate:string
+    description:string
+}
+
+export interface DataGetScript {
+    _id:string
+    identifier:string
+    name: string
+    creationDate:string
+    script:DescriptionScript[]
+}
+
+
 const Home = () => {
+
+    //carga de scripts 
+    const [dataScripts, setDataScripts] = useState<DataGetScript[]>()
+    useEffect(() => {
+        const getAllScrips = async () => {
+            let URL = "http://127.0.0.1:8000/"
+            try {
+                const response = await axios.get(URL)
+                setDataScripts(response.data)
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        getAllScrips()
+    }, [])
+
+    console.log(dataScripts);
+
     return (
         <>
             <div className={style.container}>
@@ -14,14 +47,15 @@ const Home = () => {
                         <h2>Fecha actualización</h2>
                         <h2>Acciones</h2>
                     </div>
-                    {data.map((item) => (
-                        <div key={item.id}>
+                    {dataScripts !== undefined && dataScripts.map((item) => (
+                        <div key={item._id}>
                             <ItemScript
-                                id={item.id}
+                                _id={item._id}
+                                identifier={item.identifier}
                                 name={item.name}
                                 creationDate={item.creationDate}
-                                updateDate={item.creationDate}
-                                script={item.script}
+                                updateDate={item.script[0].updateDate}
+                                script={item.script[0].description}
                             />
                         </div>
 

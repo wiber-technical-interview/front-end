@@ -22,7 +22,7 @@ function Header() {
         <div>
             {isLocationHome ? (
                 <div className={style.container}>
-                    <img src={logo} alt='logo' />
+                    <img src={logo} alt='logo' className={style.imageLogo} />
                     <div className={style.containerTitle}>
                         <h2 className={style.title}>WIBER - Internet para exigentes</h2>
                         <p>Modelo de prueba para la gestion de Scripts</p>

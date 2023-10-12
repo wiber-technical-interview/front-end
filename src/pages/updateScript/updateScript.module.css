@@ -48,9 +48,7 @@
     padding-left: 10px;
     font-family: Helvetica;
     background-color: rgb(34, 34, 34);
-    color: #e0e0e3;
-
-
+    color: rgb(242, 239, 222)
 }
 
 .textTarea {
@@ -64,17 +62,16 @@
     padding: 10px;
     font-family: Helvetica;
     background-color: rgb(34, 34, 34);
-    color: #e0e0e3;
-
+    color: rgb(242, 239, 222)
 }
 
-.buttonAddScript{
+.buttonAddScript {
     height: 40px;
     border: none;
     border-radius: 10px;
     width: 140px;
-    background-color:#111666;
-    color:white;
+    background-color: #111666;
+    color: white;
     margin: 10px;
     margin-left: 40px;
 }
@@ -83,4 +80,35 @@
     background-color: #c94553;
     scale: 1.1;
     transition: .3s;
+}
+
+.buttonDelete {
+    height: 40px;
+    border: none;
+    border-radius: 10px;
+    width: 140px;
+    background-color: #c94553;
+    color: white;
+    margin: 4px;
+    margin-left: 10px;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+
+}
+
+.buttonDelete:disabled{
+    opacity: 0.3;
+}
+.buttonDelete:disabled:hover{
+    scale: 1;
+    background-color: #c93c4a;
+}
+
+.buttonDelete:hover {
+    scale: 1.1;
+    transition: 0.3s;
+    background-color: #970a18;
+
 }

@@ -1,7 +1,7 @@
 
 .container img {
     width: 120px;
-    height: 120px;
+    height: 70px;
     margin-right: 40px;
 
 }
@@ -13,7 +13,7 @@
     justify-content: space-around;
     text-align: center;
     align-items: center;
-    background: linear-gradient(to bottom, #dd6874, #c93c4a);
+    background: linear-gradient(to bottom, #252222, #312e2e);
     height: 70px;
     width: 100vw;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
@@ -35,10 +35,11 @@
 
 }
 
+
 .containerTitle p {
-    color: #111666;
+    color: #e3dddd;
     font-weight: 700;
-    font-size: 1.3vw;
+    font-size: 0.8vw;
 }
 
 .scriptDetails {
