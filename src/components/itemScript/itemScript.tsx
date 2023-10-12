@@ -2,15 +2,15 @@ import { useState } from "react"
 import style from "./itemScript.module.css"
 import DetailScript from "../detailScript/detailScript";
 import { useNavigate } from "react-router-dom";
+import { DescriptionScript } from "../../pages/home/home";
 
 
 export interface DataScript {
-    _id: string,
+    id: string,
     identifier: string
     name: string,
     creationDate: string,
-    updateDate: string,
-    script: string,
+    script: DescriptionScript[],
     closeModal?: () => void;
 }
 
@@ -23,7 +23,7 @@ const ItemScript = (props: DataScript) => {
     }
 
     const handlerEditClick = () => {
-        navigate(`/updateScript/${props._id}`);
+        navigate(`/updateScript/${props.id}`);
     };
 
 
@@ -40,7 +40,10 @@ const ItemScript = (props: DataScript) => {
                 <h6>{props.creationDate.substring(0, 10)}</h6>
             </div>
             <div className={style.column}>
-                <h6>{props.updateDate.substring(0, 10)}</h6>
+                <h6>{props.script[props.script.length -1].updateDate.substring(0, 10)}</h6>
+            </div>
+            <div className={style.column}>
+                <h6>{props.script.length}</h6>
             </div>
             <div className={style.column}>
                 <button
@@ -57,11 +60,10 @@ const ItemScript = (props: DataScript) => {
                     <div className={style.containerModal}>
                     </div>
                     <DetailScript
-                        _id={props._id}
+                        id={props.id}
                         identifier={props.identifier}
                         name={props.name}
                         creationDate={props.creationDate}
-                        updateDate={props.updateDate}
                         script={props.script}
                         closeModal={handleModalView} />
                 </div>
