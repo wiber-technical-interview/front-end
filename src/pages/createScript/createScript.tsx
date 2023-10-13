@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import style from "./createScript.module.css"
 import axios from "axios"
-import { LoaderIcon, Toaster, toast } from 'react-hot-toast';
+import {  Toaster, toast } from 'react-hot-toast';
 
 
 export interface PostScript {
@@ -21,7 +21,7 @@ const CreateScript = () => {
   //control de la visualizacion del boton 
   const [disabledButtonCreate, setDisabledButtonCreate] = useState(true)
   useEffect(() => {
-    const isInputChanged = inputValue.name === "" || inputValue.script === ""
+    const isInputChanged = inputValue.name.length < 3 || inputValue.script === ""
     setDisabledButtonCreate(isInputChanged)
   }, [inputValue])
 

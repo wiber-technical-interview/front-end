@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import style from "./detailScript.module.css"
 import { DataScript } from '../../components/itemScript/itemScript'
 import { deleteScriptById } from '../../redux/actions';
@@ -34,8 +34,12 @@ const DetailScript = (props: DataScript) => {
         if (confirmDelete) {
             try {
                 const response = await axios.delete(`http://127.0.0.1:8000/updateScript/${props.id}`);
-                toast.success(response.data.message)
-                dispatch(deleteScriptById(props.id))
+                if (response.status === 200) {
+                    dispatch(deleteScriptById(props.id));
+                    toast.success("Script eliminado exitosamente");
+                } else {
+                    toast.error("Error al eliminar el script: " + response.data.error);
+                }
             } catch (error) {
                 toast.error("El Script no se pudo eliminar correctamente");
                 console.log(error);

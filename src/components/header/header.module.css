@@ -24,7 +24,9 @@
 .title {
     color: #111666;
     margin-bottom: -10px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Helvetica;
+    font-weight: 900px;
+
 }
 
 .containerTitle {

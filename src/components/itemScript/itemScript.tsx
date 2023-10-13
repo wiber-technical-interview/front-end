@@ -1,7 +1,6 @@
 import { useState } from "react"
 import style from "./itemScript.module.css"
 import DetailScript from "../detailScript/detailScript";
-import { useNavigate } from "react-router-dom";
 import { DescriptionScript } from "../../pages/home/home";
 import axios from "axios";
 import { Toaster, toast } from 'react-hot-toast';
@@ -20,7 +19,6 @@ export interface DataScript {
 }
 
 const ItemScript = (props: DataScript) => {
-    const navigate = useNavigate();
     const dispatch = useDispatch()
 
     //estado para actualizar script

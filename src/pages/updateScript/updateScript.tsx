@@ -1,51 +1,30 @@
 import { useEffect, useState } from "react"
 import style from "./updateScript.module.css"
-import { MdDeleteForever } from 'react-icons/md';
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
-import { LoaderIcon, Toaster, toast } from 'react-hot-toast';
+import { Toaster, toast } from 'react-hot-toast';
+import { useSelector } from 'react-redux';
+import { DataScript } from "../../redux/reducer";
 
 export interface UpdateScript {
-    name: string,
-    description: string
+    name?: string,
+    description?: string
 }
 
 const UpdateScript = () => {
-    const navigate = useNavigate();
-
+    const navigate = useNavigate()
     let { id } = useParams();
 
-    //estado script previo original 
-    const [descriptioScript, setdescriptioScript] = useState({
-        description: ""
-    })
+    //carga info del script 
+    let scripts = useSelector((state: DataScript) => state.dataScripts)
+    let dataScripById = scripts.find((item) => item._id === id)
+    let textScript = dataScripById?.script[dataScripById?.script.length - 1].description
+
     //estado para gestionar los input
     const [inputUpdateScript, setIinputUpdateScript] = useState<UpdateScript>({
-        name: "",
-        description: ""
+        name: dataScripById?.name,
+        description: textScript
     })
-    //carga de informacion scripts por ID 
-    useEffect(() => {
-        const getScriptById = async () => {
-            let URL = `http://127.0.0.1:8000/updateScript/${id}`
-            try {
-                const response = await axios.get(URL)
-                let lastUpdateScript = response.data.script.length - 1
-                setdescriptioScript({
-                    description: response.data.script[lastUpdateScript].description
-                })
-                setIinputUpdateScript({
-                    name: response.data.name,
-                    description: response.data.script[lastUpdateScript].description
-                })
-                return response.data
-            } catch (error) {
-                console.log(error);
-            }
-        }
-        getScriptById()
-    }, [])
-
 
 
     //Actualizar inputs para enviar cambios 
@@ -56,15 +35,20 @@ const UpdateScript = () => {
         })
     }
 
-    // solicitu Update Script
-    const [isEditing, setisEditing] = useState(false)
+    // solicitud Update Script
     const handlerUpdate = async () => {
         try {
             const response = await axios.put(`http://127.0.0.1:8000/updateScript/${id}`, inputUpdateScript);
-            response && setisEditing(!isEditing)
-            isEditing && toast.success(response.data.message)
+            if (response.status === 200) {
+                toast.success(response.data.message,{ duration: 400 })
+                setTimeout(() => {
+                    navigate(`/`)
+                }, 1300);
+            } else {
+                toast.error("Error al actulizar el script: " + response.data.error);
+            }
         } catch (error) {
-            console.log(error);
+            toast.error("Error al actulizar el script: ");
         }
     }
 
@@ -72,9 +56,9 @@ const UpdateScript = () => {
     //manejar el disabled de guardar Script
     const [disabledButtonEdit, setDisabledButtonEdit] = useState(true)
     useEffect(() => {
-        const isDescriptionChanged = descriptioScript.description.trim() !== inputUpdateScript.description.trim();
+        const isDescriptionChanged = textScript?.trim() !== inputUpdateScript.description?.trim();
         setDisabledButtonEdit(!isDescriptionChanged);
-    }, [inputUpdateScript]);
+    }, [inputUpdateScript, textScript]);
 
 
 
@@ -108,7 +92,6 @@ const UpdateScript = () => {
                         Guardar Script
                     </button>
                     <Toaster />
-
                 </div>
             </div>
         </div>
