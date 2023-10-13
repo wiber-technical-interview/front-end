@@ -13,7 +13,7 @@
     justify-content: space-around;
     text-align: center;
     align-items: center;
-    background: linear-gradient(to bottom, #252222, #312e2e);
+    background: linear-gradient(to bottom, #af3c47, #c94553);
     height: 70px;
     width: 100vw;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
@@ -22,7 +22,7 @@
 
 
 .title {
-    color: white;
+    color: #111666;
     margin-bottom: -10px;
     font-family: Arial, Helvetica, sans-serif;
 }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import style from "./createScript.module.css"
 import axios from "axios"
+import { LoaderIcon, Toaster, toast } from 'react-hot-toast';
 
 
 export interface PostScript {
@@ -15,7 +16,9 @@ const CreateScript = () => {
     name: "",
     script: ""
   })
-  //control de disabled del button 
+
+
+  //control de la visualizacion del boton 
   const [disabledButtonCreate, setDisabledButtonCreate] = useState(true)
   useEffect(() => {
     const isInputChanged = inputValue.name === "" || inputValue.script === ""
@@ -32,19 +35,22 @@ const CreateScript = () => {
   }
 
 
+  //Solicitud para cargar un nuevo Script 
   const postScriptOnClick = async () => {
-
     let URL = "http://127.0.0.1:8000/createScript"
     try {
       const response = await axios.post(URL, inputValue)
-      console.log(response)
-      setInputValue({
-        name: "",
-        script: ""
-      })
-      response.data === "200" && window.confirm("se cargo perfecto mi rey ")
+      if (response.status) {
+        setInputValue({
+          name: "",
+          script: ""
+        })
+        toast.success(response.data.message)
+      } else {
+        toast.error("Error al eliminar el script: " + response.data.error);
+      }
     } catch (error) {
-      console.log(error)
+      toast.error("Error al eliminar el script: ")
     }
   }
 
@@ -53,6 +59,7 @@ const CreateScript = () => {
     <div className={style.container}>
       <div className={style.containerForm}>
         <div className={style.containerinput}>
+          <Toaster />
           <label htmlFor="nombre">INGRESE NOMBRE:</label>
           <input
             type="text"

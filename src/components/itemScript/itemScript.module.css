@@ -8,7 +8,6 @@
     text-align: center;
     align-items: center;
     border-bottom: 1px solid rgb(147, 144, 144);
-    transition: background-color 0.3s
 }
 
 .container h4{
@@ -25,9 +24,7 @@
 .buttonView:hover{
     background-color: #c94553;
 }
-.container:hover{
-    background-color: #5c181f;
-}
+
 .containerModal{
     background-color: rgb(25, 25, 25);
     width: 100vw;
@@ -61,4 +58,36 @@
     background-color:#0c1044;
     color: aliceblue;
     margin: 10px;
+}
+
+.buttonDelete {
+    height: 30px;
+    border: none;
+    border-radius: 100px;
+    width: 30px;
+    background-color: #c94553;
+    color: white;
+    margin: 4px;
+    margin-left: 10px;
+    align-items: center;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+
+}
+
+.buttonDelete:disabled {
+    opacity: 0.3;
+}
+
+.buttonDelete:disabled:hover {
+    scale: 1;
+    background-color: #c93c4a;
+}
+
+.buttonDelete:hover {
+    scale: 1.1;
+    transition: 0.3s;
+    background-color: #970a18;
+
 }

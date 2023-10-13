@@ -3,6 +3,7 @@ import style from "./updateScript.module.css"
 import { MdDeleteForever } from 'react-icons/md';
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
+import { LoaderIcon, Toaster, toast } from 'react-hot-toast';
 
 export interface UpdateScript {
     name: string,
@@ -55,15 +56,13 @@ const UpdateScript = () => {
         })
     }
 
-    // Update Script
+    // solicitu Update Script
     const [isEditing, setisEditing] = useState(false)
-
     const handlerUpdate = async () => {
         try {
             const response = await axios.put(`http://127.0.0.1:8000/updateScript/${id}`, inputUpdateScript);
             response && setisEditing(!isEditing)
-            isEditing && alert("guardado con exito")
-            navigate("/")
+            isEditing && toast.success(response.data.message)
         } catch (error) {
             console.log(error);
         }
@@ -79,20 +78,6 @@ const UpdateScript = () => {
 
 
 
-    // DELETE Script by ID
-    const handlerDelete = async () => {
-        const confirmDelete = window.confirm("¿Está seguro de que desea borrar este script?");
-        if (confirmDelete) {
-            try {
-                const response = await axios.delete(`http://127.0.0.1:8000/updateScript/${id}`);
-                navigate("/")
-                console.log(response);
-                
-            } catch (error) {
-                console.log(error);
-            }
-        }
-    }
     return (
         <div className={style.container}>
             <div className={style.containerForm}>
@@ -103,11 +88,7 @@ const UpdateScript = () => {
                             {inputUpdateScript ? inputUpdateScript.name : ""}
                         </h4>
                     </div>
-                    <select>
-                        <option>{descriptioScript.description}</option>
-                    </select>
                 </div>
-
                 <div className={style.containerinput}>
                     <label htmlFor="nombre">INGRESE SCRIPT</label>
                     <textarea
@@ -126,12 +107,8 @@ const UpdateScript = () => {
                         disabled={disabledButtonEdit}>
                         Guardar Script
                     </button>
-                    <button className={style.buttonDelete}
-                        onClick={handlerDelete}
-                        disabled={isEditing}>
-                        <MdDeleteForever size={25} color='white' />
-                        Borrar Script
-                    </button>
+                    <Toaster />
+
                 </div>
             </div>
         </div>

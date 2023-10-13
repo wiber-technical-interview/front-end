@@ -84,6 +84,10 @@
     font-weight: 700;
     box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.9);
     margin: 10px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .buttonClose:hover {
@@ -156,6 +160,29 @@
 
 .buttonSave:hover {
     scale: 1.1;
+    transition: 0.3s;
+    background-color: #672027;
+
+}
+.buttonDelete{
+    width: 130px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    background-color: #c93c4a;
+    color: antiquewhite;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    font-weight: 700;
+    box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.9);
+    margin: 10px;
+}
+
+.buttonDelete:hover {
+    scale: 1.04;
     transition: 0.3s;
     background-color: #672027;
 

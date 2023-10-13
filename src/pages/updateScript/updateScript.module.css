@@ -94,35 +94,3 @@
     scale: 1;
     transition: .3s;
 }
-
-.buttonDelete {
-    height: 40px;
-    border: none;
-    border-radius: 10px;
-    width: 140px;
-    background-color: #c94553;
-    color: white;
-    margin: 4px;
-    margin-left: 10px;
-    align-items: center;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-
-}
-
-.buttonDelete:disabled {
-    opacity: 0.3;
-}
-
-.buttonDelete:disabled:hover {
-    scale: 1;
-    background-color: #c93c4a;
-}
-
-.buttonDelete:hover {
-    scale: 1.1;
-    transition: 0.3s;
-    background-color: #970a18;
-
-}
