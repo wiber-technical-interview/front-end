@@ -8,7 +8,6 @@ import { useSelector } from 'react-redux';
 import { DataScript } from '../../redux/reducer'
 import logo from "../../assets/imageLogo.jpg"
 import { MdDeleteForever } from 'react-icons/md';
-import { LoaderIcon } from 'react-hot-toast';
 
 export interface DescriptionScript {
     updateDate: string
@@ -28,7 +27,7 @@ const Home = () => {
 
     const dispatch = useDispatch()
 
-    const [Loading, setLoading] = useState(true)
+    const [Loading, setLoading] = useState(false)
 
     useEffect(() => {
         //Guarda y Carga de scripts desde REDUX 
@@ -40,7 +39,7 @@ const Home = () => {
             } catch (error) {
                 console.log(error);
             } finally {
-                setLoading(false)
+                setLoading(true)
             }
         }
         getAllScrips()
@@ -66,9 +65,7 @@ const Home = () => {
                         <h2>Nº Versiones</h2>
                         <h2>Acciones</h2>
                     </div>
-                    {Loading ?
-                        (<LoaderIcon style={{ width: 40, height: 40 }} />
-                        ) : data ? (
+                    { data.length ? (
                             data.map((item) => (
                                 <div key={item._id}>
                                     <ItemScript
@@ -80,13 +77,13 @@ const Home = () => {
                                     />
                                 </div>
                             ))
-                        ) : (
+                        ) : Loading?(
                             <div className={style.title}>
                                 <h2>Ups! no hay Script cargados. </h2>
                                 <h4>Dirigite a "CREAR SCRIPT" y agregalos para verlos en la lista </h4>
                                 <img src={logo} alt='logo' className={style.imageLogo} />
                             </div>
-                        )}
+                        ):<></>}
                 </div>
             </div>
 

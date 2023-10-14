@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import style from "./createScript.module.css"
 import axios from "axios"
-import {  Toaster, toast } from 'react-hot-toast';
+import { toast } from 'react-hot-toast';
 
 
 export interface PostScript {
@@ -45,21 +45,25 @@ const CreateScript = () => {
           name: "",
           script: ""
         })
-        toast.success(response.data.message)
+        toast.success(response.data.message,{ duration: 1000 });
       } else {
-        toast.error("Error al eliminar el script: " + response.data.error);
+       toast.error("Error al crear el script: " + response.data.error);
       }
     } catch (error) {
-      toast.error("Error al eliminar el script: ")
+      toast.error("Error al crear el script: ")
     }
   }
-
+  useEffect(() => {
+    return () => {
+      toast.dismiss();
+    }
+  }, [])
+  
 
   return (
     <div className={style.container}>
       <div className={style.containerForm}>
         <div className={style.containerinput}>
-          <Toaster />
           <label htmlFor="nombre">INGRESE NOMBRE:</label>
           <input
             type="text"
@@ -71,7 +75,6 @@ const CreateScript = () => {
             placeholder="Ingrese nombre del Script..."
           />
         </div>
-
         <div className={style.containerinput}>
           <label htmlFor="nombre">INGRESE SCRIPT</label>
           <textarea
