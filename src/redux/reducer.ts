@@ -4,6 +4,7 @@ import { DataGetScript } from "../pages/home/home"
 //interfaces 
 export interface DataScript {
     dataScripts: DataGetScript[]
+    dataScriptsByName:DataGetScript[]
 }
 export interface Action {
     type: string
@@ -12,7 +13,8 @@ export interface Action {
 
 
 const initialstate: DataScript = {
-    dataScripts: []
+    dataScripts: [],
+    dataScriptsByName:[]
 }
 
 const reducer = (state = initialstate, action: Action) => {
@@ -21,7 +23,17 @@ const reducer = (state = initialstate, action: Action) => {
         case 'ADD_ALL_SCRIPTS':
             return {
                 ...state,
-                dataScripts: action.payload
+                dataScripts: action.payload,
+            };
+        case 'ADD_SCRIPTS_BY_NAME':
+            return {
+                ...state,
+                dataScriptsByName: action.payload
+            };
+        case 'DELETE_SCRIPTS_BY_NAME':
+            return {
+                ...state,
+                dataScriptsByName: []
             };
         case 'DELETE_SCRIPT':
             let dataScriptsFilter = state.dataScripts.filter((item)=>item._id !== action.payload)

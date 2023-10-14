@@ -1,4 +1,3 @@
-
 .container img {
     width: 120px;
     height: 70px;
@@ -68,23 +67,58 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
     border-radius: 20px;
     padding-left: 10px;
+    margin-left: 34px;
+
 }
 
 .searchContainer {
     width: 600px;
     text-align: center;
     align-items: center;
+    display: flex;
 }
 
-.searchContainer button {
+.buttonSearch {
     border: none;
-    width: 70px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     border-radius: 30px;
-    margin: 10px;
+    background-color: #111666;
+    margin-left: 24px;
+    box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.9);
+
+
 }
 
-.buttonCreate{
+.buttonSearch:hover {
+    scale: 1.05;
+    transition: 0.2s;
+    background-color: #0c1046;
+}
+
+.buttonSearch:disabled {
+    opacity: .4;
+}
+
+.buttonSearch:disabled:hover {
+    scale: 1;
+    background-color: #111666;
+}
+.buttonAll{
+    border: none;
+    width: 90px;
+    height: 50px;
+    border-radius: 20px;
+    background-color: #111666;
+    margin-left: 5px;
+    box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.9);
+    color: #e3dddd;
+}
+.buttonAll:disabled{
+ opacity: 0;
+}
+
+.buttonCreate {
     border-radius: 20px;
     border: none;
     width: 140px;
@@ -97,7 +131,10 @@
     box-shadow: 0px 0px 4px rgba(255, 255, 255, 0.9);
 
 }
-.buttonCreate:hover{
-scale: 1.05;
-transition: 0.2s;
+
+.buttonCreate:hover {
+    scale: 1.05;
+    transition: 0.2s;
+    background-color: #0c1046;
+
 }
