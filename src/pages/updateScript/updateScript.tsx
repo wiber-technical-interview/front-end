@@ -6,7 +6,7 @@ import { Toaster, toast } from 'react-hot-toast';
 import { useSelector } from 'react-redux';
 import { DataScript } from "../../redux/reducer";
 
-export interface UpdateScript {
+export interface UpdateScriptModel {
     name?: string,
     description?: string
 }
@@ -21,7 +21,7 @@ const UpdateScript = () => {
     let textScript = dataScripById?.script[dataScripById?.script.length - 1].description
 
     //estado para gestionar los input
-    const [inputUpdateScript, setIinputUpdateScript] = useState<UpdateScript>({
+    const [inputUpdateScript, setIinputUpdateScript] = useState<UpdateScriptModel>({
         name: dataScripById?.name,
         description: textScript
     })

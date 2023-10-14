@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 import { DataScript } from '../../redux/reducer'
 import logo from "../../assets/imageLogo.jpg"
 import { MdDeleteForever } from 'react-icons/md';
-import { LoaderIcon, Toaster, toast } from 'react-hot-toast';
+import { LoaderIcon } from 'react-hot-toast';
 
 export interface DescriptionScript {
     updateDate: string
@@ -29,21 +29,24 @@ const Home = () => {
     const dispatch = useDispatch()
 
     const [Loading, setLoading] = useState(true)
-    //Guarda y Carga de scripts desde REDUX 
-    const getAllScrips = async () => {
-        let URL = "http://127.0.0.1:8000/"
-        try {
-            const response = await axios.get(URL)
-            dispatch(addAllScripts(response.data))
-        } catch (error) {
-            console.log(error);
-        } finally {
-            setLoading(false)
-        }
-    }
+
     useEffect(() => {
+        //Guarda y Carga de scripts desde REDUX 
+        const getAllScrips = async () => {
+            let URL = "http://127.0.0.1:8000/"
+            try {
+                const response = await axios.get(URL)
+                dispatch(addAllScripts(response.data))
+            } catch (error) {
+                console.log(error);
+            } finally {
+                setLoading(false)
+            }
+        }
         getAllScrips()
-    }, [])
+    }, [dispatch])
+
+
     //carga de estados desde redux     
     let dataScripts = useSelector((state: DataScript) => state.dataScripts)
     let dataScriptsByName = useSelector((state: DataScript) => state.dataScriptsByName)
