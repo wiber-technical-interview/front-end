@@ -14,7 +14,7 @@ Siga estos pasos para ejecutar la aplicación Docker en su sistema local:
 
        docker-compose up -d --build
 
-4. Espera que termine de cargar y abre la app en tu navegador la dirección:
+4. Espera que termine de cargar y abre la app en tu navegador en la dirección:
 
        http://localhost:3000/
 
