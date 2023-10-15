@@ -37,7 +37,7 @@ const CreateScript = () => {
 
   //Solicitud para cargar un nuevo Script 
   const postScriptOnClick = async () => {
-    let URL = "https://web-i1437ycsl51f.up-fi-hel1-1.apps.run-on-seenode.com/createScript"
+    let URL = "backend-fastapi-production.up.railway.app/createScript"
     try {
       const response = await axios.post(URL, inputValue)
       if (response.status) {
