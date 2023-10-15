@@ -37,7 +37,7 @@ const CreateScript = () => {
 
   //Solicitud para cargar un nuevo Script 
   const postScriptOnClick = async () => {
-    let URL = "http://127.0.0.1:8000/createScript"
+    let URL = "https://web-i1437ycsl51f.up-fi-hel1-1.apps.run-on-seenode.com/createScript"
     try {
       const response = await axios.post(URL, inputValue)
       if (response.status) {
