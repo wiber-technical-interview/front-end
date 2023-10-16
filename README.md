@@ -1,6 +1,6 @@
 ## Accede al Deploy de la App desde el siguiente enlance:
 
-https://dancing-lollipop-b46fc7.netlify.app/
+https://script-management.netlify.app/
 
 ## Guía para Ejecutar la Aplicación con Docker
 Este repositorio contiene una aplicación que ha sido dockerizada para simplificar su configuración y despliegue. La aplicación consta de un servidor (backend) construido con python y fastApy y una interfaz de usuario (frontend) construido con React.js, ambos ejecutándose en contenedores separados, con una base de datos MongoDB.
