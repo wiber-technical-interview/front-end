@@ -32,7 +32,7 @@ const Home = () => {
     useEffect(() => {
         //Guarda y Carga de scripts desde REDUX 
         const getAllScrips = async () => {
-            let URL = "http://127.0.0.1:8000/"
+            let URL = "https://backend-fastapi-production.up.railway.app/"
             try {
                 const response = await axios.get(URL)
                 dispatch(addAllScripts(response.data))

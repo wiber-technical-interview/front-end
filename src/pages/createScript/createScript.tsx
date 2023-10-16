@@ -37,7 +37,7 @@ const CreateScript = () => {
 
   //Solicitud para cargar un nuevo Script 
   const postScriptOnClick = async () => {
-    let URL = "backend-fastapi-production.up.railway.app/createScript"
+    let URL = "https://backend-fastapi-production.up.railway.app/createScript"
     try {
       const response = await axios.post(URL, inputValue)
       if (response.status) {
