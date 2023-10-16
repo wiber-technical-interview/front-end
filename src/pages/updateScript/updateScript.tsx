@@ -38,7 +38,7 @@ const UpdateScript = () => {
     // solicitud Update Script
     const handlerUpdate = async () => {
         try {
-            const response = await axios.put(`http://127.0.0.1:8000/updateScript/${id}`, inputUpdateScript);
+            const response = await axios.put(`https://server-app-mv4g.onrender.com/updateScript/${id}`, inputUpdateScript);
             if (response.status === 200) {
                 toast.success(response.data.message,{ duration: 400 })
                 setTimeout(() => {

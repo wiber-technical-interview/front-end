@@ -33,7 +33,7 @@ const ItemScript = (props: DataScript) => {
         const confirmDelete = window.confirm("¿Está seguro de que desea borrar este script?");
         if (confirmDelete) {
             try {
-                const response = await axios.delete(`http://127.0.0.1:8000/updateScript/${props.id}`);
+                const response = await axios.delete(`https://server-app-mv4g.onrender.com/updateScript/${props.id}`);
                 if (response.status === 200) {
                     dispatch(deleteScriptById(props.id));
                     toast.success("Script eliminado exitosamente");

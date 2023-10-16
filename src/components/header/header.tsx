@@ -27,7 +27,7 @@ function Header() {
     // solicitud buscar script por nombre  
     const searchScriptByName = async () => {
         try {
-            let URL = `http://127.0.0.1:8000/${inputValue}`
+            let URL = `https://server-app-mv4g.onrender.com/${inputValue}`
             const response = await axios.get(URL)
             if (response.data.length) {
                 dispatch(addScriptByName(response.data))
