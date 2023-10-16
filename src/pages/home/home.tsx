@@ -32,7 +32,7 @@ const Home = () => {
     useEffect(() => {
         //Guarda y Carga de scripts desde REDUX 
         const getAllScrips = async () => {
-            let URL = "https://backend-fastapi-production.up.railway.app/"
+            let URL = "https://server-app-mv4g.onrender.com/"
             try {
                 const response = await axios.get(URL)
                 dispatch(addAllScripts(response.data))
