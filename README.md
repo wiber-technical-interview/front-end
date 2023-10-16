@@ -1,4 +1,4 @@
-## Accede al Deploy de la App con desde el siguiente enlance:
+## Accede al Deploy de la App desde el siguiente enlance:
 
 https://dancing-lollipop-b46fc7.netlify.app/
 
